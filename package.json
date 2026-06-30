@@ -1,0 +1,14 @@
+{
+  "name": "ai-search-engine",
+  "version": "1.0.0",
+  "description": "A clean, minimalist AI-powered search engine using Tavily and OpenRouter (Gemini Flash).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2"
+  },
+  "private": true
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Search | AI-Powered Answers</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Markdown parser (marked) for clean markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container" id="app">
+    
+    <!-- Main Search Header (Home State) -->
+    <header class="search-header" id="searchHeader">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <h1>Gemini Search</h1>
+      </div>
+      <p class="subtitle">Ask anything. We'll search the web and synthesize the answer.</p>
+    </header>
+
+    <!-- Search Form -->
+    <div class="search-box-container" id="searchBoxContainer">
+      <form id="searchForm" class="search-form">
+        <div class="input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Ask a question..." 
+            autocomplete="off" 
+            required
+          />
+          <button type="submit" id="searchButton" class="submit-btn">
+            <span class="btn-text">Search</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-container hidden" id="loadingContainer">
+      <div class="loading-status">
+        <div class="spinner"></div>
+        <div class="status-steps">
+          <div class="step" id="step1">
+            <span class="step-bullet">●</span>
+            <span class="step-text">Optimizing search query...</span>
+          </div>
+          <div class="step" id="step2">
+            <span class="step-bullet">●</span>
+            <span class="step-text">Searching the web for sources...</span>
+          </div>
+          <div class="step" id="step3">
+            <span class="step-bullet">●</span>
+            <span class="step-text">Synthesizing final cited answer...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div class="error-container hidden" id="errorContainer">
+      <div class="error-card">
+        <span class="error-icon">⚠️</span>
+        <p id="errorMessage">Something went wrong. Please try again.</p>
+        <button id="errorRetryBtn" class="retry-btn">Try Again</button>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <main class="results-section hidden" id="resultsSection">
+      <!-- Sources Column -->
+      <section class="sources-panel">
+        <div class="panel-header">
+          <h2>Sources</h2>
+          <span class="source-count" id="sourceCount">0 found</span>
+        </div>
+        <div class="sources-grid" id="sourcesGrid">
+          <!-- Dynamically populated source cards -->
+        </div>
+      </section>
+
+      <!-- Main Answer Column -->
+      <section class="answer-panel">
+        <div class="panel-header">
+          <h2>Answer</h2>
+          <div class="query-badge" id="queryBadge">Query</div>
+        </div>
+        <div class="answer-content-card">
+          <div class="answer-text markdown-body" id="answerText">
+            <!-- Dynamically populated answer -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
