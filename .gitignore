@@ -12,11 +12,26 @@ lerna-debug.log*
 
 # Environment files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
 *.env
+!.env.example
+
+# Local credentials and private keys
+.secrets/
+secrets/
+credentials.json
+credentials.local.json
+secrets.json
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa
+id_ecdsa
+id_ed25519
+
+# Runtime logs may contain private data
+*.log
 
 # OS files
 .DS_Store
