@@ -34,15 +34,15 @@ app.post('/api/search', async (req, res) => {
   try {
     console.log(`\n--- New Search Request: "${query}" ---`);
 
-    // STEP 1: Generate optimized search query using OpenRouter (google/gemini-flash-latest)
+    // STEP 1: Generate optimized search query using OpenRouter (google/gemini-3.5-flash)
     console.log('Step 1: Generating optimized search query...');
     const optimizeResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://github.com/google-deepmind/antigravity', // Optional referer
-        'X-Title': 'AntiGravity AI Search Engine'
+        'HTTP-Referer': 'https://github.com/NoahTheGinger/Gemini-Search', // Optional referer
+        'X-Title': 'Gemini Search'
       },
       body: JSON.stringify({
         model: 'google/gemini-3.5-flash',
@@ -76,10 +76,10 @@ app.post('/api/search', async (req, res) => {
     const tavilyResponse = await fetch('https://api.tavily.com/search', {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${TAVILY_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        api_key: TAVILY_API_KEY,
         query: optimizedQuery,
         max_results: 10
       })
@@ -123,8 +123,8 @@ Instructions:
       headers: {
         'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://github.com/google-deepmind/antigravity',
-        'X-Title': 'AntiGravity AI Search Engine'
+        'HTTP-Referer': 'https://github.com/NoahTheGinger/Gemini-Search',
+        'X-Title': 'Gemini Search'
       },
       body: JSON.stringify({
         model: 'google/gemini-3.5-flash',

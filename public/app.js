@@ -157,8 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     results.forEach(source => {
       const card = document.createElement('a');
       card.className = 'source-card';
-      card.href = source.url;
+      // Only link http(s) sources, never javascript: or data: URLs
+      card.href = /^https?:\/\//i.test(source.url) ? source.url : '#';
       card.target = '_blank';
+      card.rel = 'noopener noreferrer';
       card.id = `source-${source.index}`;
       
       // Clean host name for display
@@ -195,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return `<a class="citation" data-index="${index}">${index}</a>`;
     });
 
-    answerText.innerHTML = htmlAnswer;
+    answerText.innerHTML = DOMPurify.sanitize(htmlAnswer);
 
     // Show Results Section
     resultsSection.classList.remove('hidden');

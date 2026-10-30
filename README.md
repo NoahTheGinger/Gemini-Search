@@ -8,7 +8,7 @@ A clean, minimalist AI-powered search engine. It takes your question, optimizes 
 
 ## How it works
 
-1. **Query optimization** — Your natural-language question is rewritten into a concise, effective search query using `google/gemini-flash` via OpenRouter.
+1. **Query optimization** — Your natural-language question is rewritten into a concise, effective search query using `google/gemini-3.5-flash` via OpenRouter.
 2. **Web search** — The optimized query is sent to the [Tavily Search API](https://tavily.com/), returning up to 10 relevant sources.
 3. **Answer synthesis** — Gemini Flash reads through the retrieved sources and writes a structured, Markdown-formatted answer with inline citations (`[1]`, `[2]`, etc.) tied directly back to the sources.
 
@@ -42,8 +42,8 @@ The frontend renders the answer with clickable citation badges — click one and
 1. Clone the repo and install dependencies:
 
    ```bash
-   git clone https://github.com/yourusername/gemini-search.git
-   cd gemini-search
+   git clone https://github.com/NoahTheGinger/Gemini-Search.git
+   cd Gemini-Search
    npm install
    ```
 
